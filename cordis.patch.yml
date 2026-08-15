@@ -1,0 +1,10 @@
+# The dsh-xiangqi bundle patch: activates the plugin as a profile layer.
+#
+# A single row covers both halves of this package: the host/node half runs in
+# the DSH host process (src/index.ts -> lib/index.js, an empty Cordis entry),
+# and the browser half (lib/client.js) ships in the same package, discovered
+# through the `dsh.client` declaration in package.json. There is no separate
+# ui-xiangqi package, so no second row belongs here (duplicate ids fail load).
+- insert:
+    - id: xiangqi
+      name: '@deepseek-ai/dsh-xiangqi'
