@@ -1,5 +1,9 @@
 # dsh-xiangqi
 
+[![Awesome DSH Plugin](https://awesome-dsh-plugin.com/badge.svg)](https://awesome-dsh-plugin.com)
+
+<p align="center"><img src="assets/screenshot.png" alt="dsh-xiangqi 中国象棋棋盘" width="420"/></p>
+
 深度求索 Harness (DSH) Web 客户端插件：一个"AI 思考时可以下中国象棋"的消遣宠物。
 
 一只卡通小宠物（抱着一枚"象"字棋子）悬浮在 DSH Web GUI 上，邀请你在 AI 思考的空档下棋。内置自写引擎（negamax + α-β + 迭代加深），并对局中即时提供"天天象棋定式名 + 三国杀风格击杀台词"，可选叠加多模型 LLM 局势点评。
