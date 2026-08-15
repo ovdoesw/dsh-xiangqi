@@ -125,7 +125,7 @@ if ($ok) {
 
     # 验证 bundle 端点
     try {
-        $b = Invoke-WebRequest -Uri "$url/plugins/@deepseek-ai/dsh-xiangqi/client.js" -UseBasicParsing -TimeoutSec 5
+        $b = Invoke-WebRequest -Uri "$url/plugins/dsh-xiangqi/client.js" -UseBasicParsing -TimeoutSec 5
         Write-Host "[OK] client bundle 可访问 (HTTP $($b.StatusCode), $($b.Content.Length) bytes)" -ForegroundColor Green
     } catch {
         Write-Host "[!!] client bundle 不可访问" -ForegroundColor Red

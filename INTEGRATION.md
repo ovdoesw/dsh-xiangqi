@@ -30,7 +30,7 @@ npx tsc -p tsconfig.json     # 产出 lib/
 
 ```yaml
 plugins:
-  - plugin: "@deepseek-ai/dsh-xiangqi"
+  - plugin: "dsh-xiangqi"
     disabled: false
 ```
 
@@ -49,12 +49,12 @@ DSH 会读取包的 `dsh.client` 元数据，在客户端装配 `shell.overlay`�
 若你的 DSH 提供了插件管理 CLI，也可以：
 
 ```bash
-dsh plugin add @deepseek-ai/dsh-xiangqi
-dsh plugin enable @deepseek-ai/dsh-xiangqi
+dsh plugin add dsh-xiangqi
+dsh plugin enable dsh-xiangqi
 # 然后重启 / 刷新 Web GUI
 ```
 
-把 `@deepseek-ai/dsh-xiangqi` 换成 `file:F:/桌面/dsh/Xiangqi` 即为本地调试。
+把 `dsh-xiangqi` 换成 `file:F:/桌面/dsh/Xiangqi` 即为本地调试。
 
 ## 三、验证步骤
 

@@ -9,7 +9,7 @@
  */
 import { build } from 'esbuild';
 
-const PLUGIN_ID = '@deepseek-ai/dsh-xiangqi';
+const PLUGIN_ID = 'dsh-xiangqi';
 
 // Matches the harness client-bundle shape (tsdown emits the same wrapper):
 //   window.__ModuleLoader__.load({ id, factory: (require) => { … return module.exports; } })

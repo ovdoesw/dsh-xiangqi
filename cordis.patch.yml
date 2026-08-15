@@ -7,4 +7,4 @@
 # ui-xiangqi package, so no second row belongs here (duplicate ids fail load).
 - insert:
     - id: xiangqi
-      name: '@deepseek-ai/dsh-xiangqi'
+      name: 'dsh-xiangqi'

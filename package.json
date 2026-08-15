@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-xiangqi",
+  "name": "dsh-xiangqi",
   "version": "0.1.0",
   "type": "module",
   "description": "DSH Chinese chess pastime plugin — a draggable mascot that invites you to play Xiangqi while the AI thinks",
