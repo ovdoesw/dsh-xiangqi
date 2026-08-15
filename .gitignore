@@ -1,0 +1,20 @@
+# dependencies
+node_modules/
+
+# logs
+*.log
+dsh-restart.out.log
+dsh-restart.err.log
+
+# local DSH / tooling
+.dsh/
+*.local.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# editor
+.idea/
+.vscode/
+*.swp
