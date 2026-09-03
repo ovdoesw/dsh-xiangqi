@@ -41,7 +41,9 @@ export function checkTerminalByImmobility(
 
 /** Simplified repetition rule:
  *  If the exact same position (including side to move) appears three times,
- *  the side to move in that repeated position loses (approximation of 长将判负).
+ *  the side that made the repetition loses (approximation of 长将判负 — the
+ *  perpetual checker is the one at fault, so the side who is NOT to move in
+ *  the repeated position is declared the loser).
  *
  *  @param positionHistory array of position keys in chronological order.
  *                       Each key must encode side to move (e.g. a FEN string).
@@ -59,7 +61,10 @@ export function detectRepetition(
   }
   if (count >= 3) {
     return {
-      winner: opponent(sideToMove),
+      // The repeated position is produced by the opponent of `sideToMove`
+      // (they just moved into it); the perpetual checker / repetition-maker
+      // is the one at fault. Winner = sideToMove (the non-repeating side).
+      winner: sideToMove,
       reason: '长将/重复局面 repetition',
     };
   }

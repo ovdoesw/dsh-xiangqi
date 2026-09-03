@@ -57,7 +57,10 @@ describe('terminal rule detection', () => {
     assert.equal(isStalemate(board, 'red'), false);
   });
 
-  it('detects a repeated position three times', () => {
+  it('detects a repeated position three times (perpetual checker loses)', () => {
+    // The repeated position ('A r') is produced by black just having moved
+    // into it; under 长将 rules the repetition-maker (perpetual checker)
+    // loses, so red — the side to move — is the winner.
     const history = [
       'rheakaehr/9/1c5c1/p1p1p1p1p/9/9/P1P1P1P1P/1C5C1/9/RHEAKAEHR r',
       'someOtherPosition b',
@@ -66,7 +69,7 @@ describe('terminal rule detection', () => {
       'rheakaehr/9/1c5c1/p1p1p1p1p/9/9/P1P1P1P1P/1C5C1/9/RHEAKAEHR r',
     ];
     const result = detectRepetition(history, 'red');
-    assert.equal(result?.winner, 'black');
+    assert.equal(result?.winner, 'red');
     assert.ok(result?.reason.includes('重复'));
   });
 
