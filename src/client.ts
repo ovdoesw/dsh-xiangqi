@@ -10,4 +10,4 @@
  */
 
 export { apply, inject } from './plugin.js';
-export type { ClientContext } from '@deepseek-ai/dsh-client-runtime/client';
+export type { ClientContext } from './client-context.js';

@@ -12,7 +12,7 @@
  * because store actions must stay synchronous.
  */
 
-import { defineStore } from '@deepseek-ai/dsh-client-runtime/client';
+import { defineStore } from '@deepseek-ai/dsh-client-store';
 
 import type { Move, Side } from '../core/board.js';
 import type { Difficulty } from '../ai/engine.js';
@@ -142,13 +142,18 @@ export function createStore() {
       },
 
       undo(draft) {
-        if (draft.gameOver || draft.aiThinking) return;
-        const cut = Math.min(draft.history.length, 2);
+        if (draft.aiThinking) return;
+        const ended = draft.gameOver !== null;
+        if (draft.history.length === 0) return;
+        // 对局结束后：悔 1 步，退掉造成终局的那一手，解除 gameOver 继续下；
+        // 对局中：悔 2 步（AI 一手 + 自己一手），回到自己的行棋回合。
+        const cut = ended ? 1 : Math.min(draft.history.length, 2);
         if (cut === 0) return;
         draft.history = draft.history.slice(0, draft.history.length - cut);
         draft.positions = draft.positions.slice(0, draft.positions.length - cut);
         draft.fen =
           draft.positions[draft.positions.length - 1] ?? INITIAL_FEN;
+        draft.gameOver = null;
         draft.lastEvent = null;
         draft.aiThinking = false;
         draft.comment = null;

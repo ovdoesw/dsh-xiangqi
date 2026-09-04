@@ -10,7 +10,7 @@
  * controller's `XiangqiInject` face.
  */
 
-import type { ClientContext } from '@deepseek-ai/dsh-client-runtime/client';
+import type { ClientContext } from './client-context.js';
 
 import type { Move, Pos } from './core/board.js';
 import { getBestMove } from './ai/engine.js';

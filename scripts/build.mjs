@@ -1,8 +1,10 @@
 /**
  * Build the dsh-xiangqi plugin artifacts:
  *  - lib/client.js  — the browser bundle (closure-factory handed to
- *                     window.__ModuleLoader__.load; react + dsh-runtime stay
- *                     external and resolve from the shell's module table).
+ *                     window.__ModuleLoader__.load; react stays external and
+ *                     resolves from the shell's module table, everything else
+ *                     — including the @deepseek-ai/dsh-client-store dependency —
+ *                     is bundled in so the module table needs no extra rows).
  *  - lib/index.js   — the host loader entry (an intentionally empty Cordis
  *                     plugin body that makes the package a loader entry so the
  *                     client-modules scanner discovers the client bundle).
@@ -21,7 +23,7 @@ await build({
   bundle: true,
   format: 'cjs',
   outfile: 'lib/client.js',
-  external: ['react', 'react/jsx-runtime', 'react-dom', '@deepseek-ai/dsh-client-runtime/client'],
+  external: ['react', 'react/jsx-runtime', 'react-dom'],
   banner: { js: BANNER },
   footer: { js: FOOTER },
   target: 'es2020',
